@@ -1,5 +1,5 @@
 import 'package:admin_dashboard/models/income_details_model.dart';
-import 'package:admin_dashboard/views/widgets/income_chart_details.dart';
+import 'package:admin_dashboard/views/widgets/income_chart_details_item.dart';
 import 'package:flutter/material.dart';
 
 class IncomeChartDetailsListView extends StatelessWidget {
@@ -18,14 +18,22 @@ class IncomeChartDetailsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: items.length,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: 16.0),
-            child: IncomeChartDetailsItem(incomeDetailsModel: items[index]),
-          );
-        });
+    return Column(
+      children: items
+          .map((e) => Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: IncomeChartDetailsItem(incomeDetailsModel: e),
+              ))
+          .toList(),
+    );
+    // return ListView.builder(
+    //     itemCount: items.length,
+    //     shrinkWrap: true,
+    //     itemBuilder: (context, index) {
+    //       return Padding(
+    //         padding: const EdgeInsets.only(right: 16.0),
+    //         child: IncomeChartDetailsItem(incomeDetailsModel: items[index]),
+    //       );
+    //     });
   }
 }

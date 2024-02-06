@@ -7,7 +7,10 @@ import '../../utils/app_styles.dart';
 class CustomCard extends StatelessWidget {
   const CustomCard({
     super.key,
+    required this.isDesktop,
   });
+
+  final bool isDesktop;
 
   @override
   Widget build(BuildContext context) {
@@ -26,45 +29,82 @@ class CustomCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            ListTile(
-              title: Text(
-                "Name Card",
-                style: AppStyles.styleRegular16
-                    .copyWith(color: const Color(0xffFFFFFF)),
-              ),
-              subtitle: const Padding(
-                padding: EdgeInsets.only(top: 8.0),
-                child: Text(
-                  "Syah Bandi",
-                  style: AppStyles.styleMedium20,
-                ),
-              ),
-              trailing: SvgPicture.asset(Assets.imagesGallery),
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    "0918 8124 0042 8129",
-                    style: AppStyles.styleSemiBold24
-                        .copyWith(color: const Color(0xffFFFFFF)),
+            isDesktop
+                ? Flexible(
+                    child: ListTile(
+                      title: Text(
+                        "Name Card",
+                        style: AppStyles.styleRegular12(context)
+                            .copyWith(color: const Color(0xffFFFFFF)),
+                      ),
+                      subtitle: Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          "Syah Bandi",
+                          style: AppStyles.styleMedium16(context),
+                        ),
+                      ),
+                      trailing: SvgPicture.asset(Assets.imagesGallery),
+                    ),
+                  )
+                : ListTile(
+                    title: Text(
+                      "Name Card",
+                      style: AppStyles.styleRegular12(context)
+                          .copyWith(color: const Color(0xffFFFFFF)),
+                    ),
+                    subtitle: Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        "Syah Bandi",
+                        style: AppStyles.styleMedium16(context),
+                      ),
+                    ),
+                    trailing: SvgPicture.asset(Assets.imagesGallery),
                   ),
-                  const SizedBox(
-                    height: 10,
+            const Spacer(),
+            isDesktop
+                ? Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            "0918 8124 0042 8129",
+                            style: AppStyles.styleSemiBold18(context)
+                                .copyWith(color: const Color(0xffFFFFFF)),
+                          ),
+                          Text(
+                            "12/20 - 124",
+                            style: AppStyles.styleRegular12(context)
+                                .copyWith(color: const Color(0xffFFFFFF)),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "0918 8124 0042 8129",
+                          style: AppStyles.styleSemiBold18(context)
+                              .copyWith(color: const Color(0xffFFFFFF)),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "12/20 - 124",
+                          style: AppStyles.styleRegular12(context)
+                              .copyWith(color: const Color(0xffFFFFFF)),
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    "12/20 - 124",
-                    style: AppStyles.styleRegular16
-                        .copyWith(color: const Color(0xffFFFFFF)),
-                  ),
-                ],
-              ),
-            )
           ],
         ),
       ),

@@ -15,7 +15,7 @@ class QuickInvoiceButtonAndTextButton extends StatelessWidget {
             onPressed: () {},
             child: Text(
               "Add more details",
-              style: AppStyles.styleSemiBold18
+              style: AppStyles.styleSemiBold14(context)
                   .copyWith(color: const Color(0xff4EB7F2)),
             ),
           )),
@@ -30,10 +30,10 @@ class QuickInvoiceButtonAndTextButton extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12))),
                 onPressed: () {},
-                child: const Center(
+                child: Center(
                   child: Text(
                     "Send Money",
-                    style: AppStyles.styleSemiBold18,
+                    style: AppStyles.styleSemiBold14(context),
                   ),
                 )),
           ),

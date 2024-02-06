@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'custom_card.dart';
 
 class PageViewCard extends StatelessWidget {
-  const PageViewCard({super.key, required this.pageController});
+  const PageViewCard(
+      {super.key, required this.pageController, required this.isDesktop});
+
+  final bool isDesktop;
 
   final PageController pageController;
   @override
@@ -12,6 +15,10 @@ class PageViewCard extends StatelessWidget {
     return ExpandablePageView(
         controller: pageController,
         scrollDirection: Axis.horizontal,
-        children: List.generate(3, (index) => const CustomCard()));
+        children: List.generate(
+            3,
+            (index) => CustomCard(
+                  isDesktop: isDesktop,
+                )));
   }
 }

@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'dots_indicator.dart';
 
 class MyCard extends StatefulWidget {
-  const MyCard({super.key});
+  const MyCard({super.key, required this.isDesktop});
+  final bool isDesktop;
 
   @override
   State<MyCard> createState() => _MyCardState();
@@ -30,14 +31,17 @@ class _MyCardState extends State<MyCard> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
+        Text(
           "My card",
-          style: AppStyles.styleSemiBold20,
+          style: AppStyles.styleSemiBold16(context),
         ),
         const SizedBox(
           height: 12,
         ),
-        PageViewCard(pageController: pageController),
+        PageViewCard(
+          pageController: pageController,
+          isDesktop: widget.isDesktop,
+        ),
         const SizedBox(
           height: 8,
         ),

@@ -2,6 +2,7 @@ import 'package:admin_dashboard/views/widgets/Income_header.dart';
 import 'package:admin_dashboard/views/widgets/custom_background_container.dart';
 import 'package:flutter/material.dart';
 
+import 'detailed_income_chart.dart';
 import 'income_chart.dart';
 import 'income_chart_details_list_view.dart';
 
@@ -22,29 +23,26 @@ class IncomeSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const IncomeHeader(),
-            isDesktop
+            isDesktop && MediaQuery.sizeOf(context).width < 1006
                 ? const Expanded(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(
-                            child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: IncomeChart(),
-                        )),
-                        Expanded(child: IncomeChartDetailsListView()),
-                      ],
-                    ),
+                    child: Expanded(
+                        child: Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: DetailedIncomeChart(),
+                    )),
                   )
                 : const Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Expanded(
                           child: Align(
                         alignment: Alignment.centerLeft,
                         child: IncomeChart(),
                       )),
-                      Expanded(child: IncomeChartDetailsListView()),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(flex: 2, child: IncomeChartDetailsListView()),
                     ],
                   ),
           ],

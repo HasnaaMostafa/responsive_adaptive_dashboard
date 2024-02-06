@@ -18,16 +18,16 @@ class RangeOptions extends StatelessWidget {
             side: const BorderSide(width: 1, color: Color(0xffF1F1F1)),
             borderRadius: BorderRadius.circular(12)),
       ),
-      child: const Row(
+      child: Row(
         children: [
           Text(
             "Monthly",
-            style: AppStyles.styleMedium16,
+            style: AppStyles.styleMedium12(context),
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
-          Icon(
+          const Icon(
             Icons.keyboard_arrow_down,
             color: Color(0xff064061),
           )

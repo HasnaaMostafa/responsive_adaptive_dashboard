@@ -15,12 +15,14 @@ class CardAndTransactionHistorySection extends StatelessWidget {
         padding: isDesktop
             ? const EdgeInsets.symmetric(horizontal: 20.0)
             : EdgeInsets.zero,
-        child: const CustomBackgroundContainer(
+        child: CustomBackgroundContainer(
           padding: 14,
           child: Column(
             children: [
-              MyCard(),
-              TransactionHistory(),
+              MyCard(
+                isDesktop: isDesktop,
+              ),
+              const TransactionHistory(),
             ],
           ),
         ));
